@@ -1,0 +1,9 @@
+services:
+  - name: website
+    image: nginx
+
+steps:
+  - name: step6
+    containerRun:
+      image: iceci/utils
+      script: "curl http://website/"

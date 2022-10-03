@@ -1,0 +1,44 @@
+
+steps:
+  - name: example-step-4
+    containerRun:
+      image: wrojka94/prywatka:newest
+      dockerSecret: dockerowy
+      script: |
+        echo "### Environment V9ariables from IceCI"
+        env | grep ICE
+        echo "### PWD"
+        pwd
+        echo "go up"
+        cd ..
+        echo "### PWD"
+        pwd
+        echo "ls:"
+        ls
+      environment:
+        - name: ICE_ENV_FIGHT
+          value: i-am-step
+        - name: ICE_ENV_FIGHT
+          value: i-am-step2
+        - name: ICE_ENV_FIGHT
+          value: i-am-step3
+  - name: example-step-5
+    containerRun:
+      image: wrojka94/prywatka:newest
+      dockerSecret: dockerowy
+      script: |
+        echo "### Environment V9ariables from IceCI"
+        env | grep ICE
+        echo "### PWD"
+        pwd
+        echo "go up"
+        cd ..
+        echo "### PWD"
+        pwd
+      environment:
+        - name: ICE_ENV_FIGHT
+          value: i-am-step
+        - name: ICE_ENV_FIGHT
+          value: i-am-step2
+        - name: ICE_ENV_FIGHT
+          value: i-am-step3

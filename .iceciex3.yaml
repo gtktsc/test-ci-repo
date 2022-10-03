@@ -1,0 +1,8 @@
+steps:
+  - name: env-test
+    containerRun:
+      image: busybox
+      script: "printenv ENV_VAR_1"
+      environment:
+        - name: ENV_VAR_1
+          value: test-value

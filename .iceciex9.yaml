@@ -1,0 +1,20 @@
+steps:
+  - name: step-that-fails
+    containerRun:
+      image: busybox
+      script: "noSuchCommand"
+    onFailure:
+      - handlerName: failure-handler-1
+
+failureHandlers:
+  - name: failure-handler-1
+    image: busybox
+    script: |
+      echo $ICECI_FH
+      cat /mnt/file
+    environment:
+      - name: ICECI_FH
+        value: failure-handler-env
+    files:
+      - path: /mnt/file
+        fromSecret: failure-secret

@@ -1,0 +1,9 @@
+steps:
+  - name: step1
+    when:
+      event: ["commit"]
+      branch: ["master"]
+      skipBranch: ["development", "feature-*"]
+    containerRun:
+      image: busybox
+      script: "echo 'Hello world!'"

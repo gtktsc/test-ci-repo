@@ -1,0 +1,8 @@
+steps:
+  - name: file-test
+    containerRun:
+      image: busybox
+      script: "cat /mnt/file"
+      files:
+        - path: /mnt/file
+          fromSecret: db-user-pass

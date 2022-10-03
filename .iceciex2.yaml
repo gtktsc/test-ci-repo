@@ -1,0 +1,10 @@
+steps:
+  - name: generate-date
+    containerRun:
+      image: busybox
+      script: "date > date.log"
+
+  - name: print-date
+    containerRun:
+      image: busybox
+      script: "cat date.log"

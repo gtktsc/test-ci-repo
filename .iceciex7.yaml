@@ -1,0 +1,12 @@
+steps:
+  - name: step-that-fails
+    containerRun:
+      image: busybox
+      script: "noSuchCommand"
+    onFailure:
+      - handlerName: failure-handler-1
+
+failureHandlers:
+  - name: failure-handler-1
+    image: busybox
+    script: 'echo "step $ICECI_FAILED_STEP_NAME has failed"'
